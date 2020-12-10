@@ -4,7 +4,10 @@ const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 const countdown = document.getElementById("countdown");
-const laoding = document.getElementById("loading");
+const loading = document.getElementById("loading");
+const subtitle = document.getElementById("subtitle");
+const audio = new Audio("campFireBurning.mp3");
+const body = document.getElementById("body");
 
 const currentYear = new Date().getFullYear();
 
@@ -21,19 +24,38 @@ function updateCountdown() {
   const m = Math.floor(diff / 1000 / 60) % 60;
   const s = Math.floor(diff / 1000) % 60;
 
-
-// add values to DOM
+  // add values to DOM
+  // updates site when countdown is complete
   days.innerHTML = d;
-  hours.innerHTML = h < 10 ? '0' + h : h;
-  minutes.innerHTML = m < 10 ? '0' + m : m;
-  seconds.innerHTML = s < 10 ? '0' + s : s;
+  hours.innerHTML = h < 10 ? "0" + h : h;
+  minutes.innerHTML = m < 10 ? "0" + m : m;
+  seconds.innerHTML = s < 10 ? "0" + s : s;
 
+  if (d <= 0 && h <= 0 && m <= 0 && s <= 0) {
+    days.innerHTML = 0;
+    hours.innerHTML = 0;
+    minutes.innerHTML = 0;
+    seconds.innerHTML = 0;
+
+    subtitle.innerText = "Happening now!";
+  }
 }
-// show spinner before countdown
+// function playAudio() {
+//   audio.play();
+// }
+
+// show spinner before countdown loads
 setTimeout(() => {
-loading.remove();
-countdown.style.display = 'flex';
-}, 1000)
+  loading.remove();
+  countdown.style.display = "flex";
+  // playAudio();
+}, 1000);
 
 // run every secon
 setInterval(updateCountdown, 1000);
+
+document.addEventListener("click", function () {
+  audio.play();
+  audio.volume = 0.2
+  console.log('page clicked');
+});
