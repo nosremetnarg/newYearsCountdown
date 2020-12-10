@@ -4,13 +4,14 @@ const hours = document.getElementById("hours");
 const minutes = document.getElementById("minutes");
 const seconds = document.getElementById("seconds");
 const countdown = document.getElementById("countdown");
+const laoding = document.getElementById("loading");
 
 const currentYear = new Date().getFullYear();
 
 const newYearTime = new Date(`January 01 ${currentYear + 1} 00:00:00`);
 const christmasShow = new Date(`December 13 ${currentYear} 19:00:00`);
 
-
+// update countdown time
 function updateCountdown() {
   const currentTime = new Date();
   const diff = christmasShow - currentTime;
@@ -21,12 +22,18 @@ function updateCountdown() {
   const s = Math.floor(diff / 1000) % 60;
 
 
-
+// add values to DOM
   days.innerHTML = d;
   hours.innerHTML = h < 10 ? '0' + h : h;
   minutes.innerHTML = m < 10 ? '0' + m : m;
   seconds.innerHTML = s < 10 ? '0' + s : s;
 
 }
+// show spinner before countdown
+setTimeout(() => {
+loading.remove();
+countdown.style.display = 'flex';
+}, 1000)
 
+// run every secon
 setInterval(updateCountdown, 1000);
