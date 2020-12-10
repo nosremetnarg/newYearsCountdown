@@ -57,5 +57,5 @@ setInterval(updateCountdown, 1000);
 document.addEventListener("click", function () {
   audio.play();
   audio.volume = 0.2
-  console.log('page clicked');
+  console.log('can you hear the fire? ');
 });
