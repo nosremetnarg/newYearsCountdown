@@ -40,9 +40,6 @@ function updateCountdown() {
     subtitle.innerText = "Happening now!";
   }
 }
-// function playAudio() {
-//   audio.play();
-// }
 
 // show spinner before countdown loads
 setTimeout(() => {
@@ -54,8 +51,39 @@ setTimeout(() => {
 // run every secon
 setInterval(updateCountdown, 1000);
 
-document.addEventListener("click", function () {
+let isPlaying = false;
+
+function playAudio() {
   audio.play();
-  audio.volume = 0.2
-  console.log('can you hear the fire? ');
+  isPlaying = true;
+}
+function stopAudio() {
+  audio.pause();
+}
+
+document.addEventListener("click", function () {
+  if (!isPlaying) {
+    playAudio();
+    audio.volume = 0.2;
+  } else {
+    stopAudio();
+  }
+  console.log("can you hear the fire? ");
 });
+
+// function togglePlay() {
+//   isPlaying ? body.pause() : body.play();
+// };
+
+// body.onplaying = function() {
+//   isPlaying = true;
+// };
+// body.onpause = function() {
+//   isPlaying = false;
+// };
+
+// document.addEventListener("click", function () {
+//   togglePlay();
+//   audio.volume = 0.2;
+//   console.log("can you hear the fire? ");
+// });
