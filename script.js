@@ -7,6 +7,8 @@ const countdown = document.getElementById("countdown");
 const loading = document.getElementById("loading");
 const subtitle = document.getElementById("subtitle");
 const audio = new Audio("campFireBurning.mp3");
+const audio1 = new Audio("Campfire-sound.mp3");
+
 const body = document.getElementById("body");
 
 const currentYear = new Date().getFullYear();
@@ -54,17 +56,19 @@ setInterval(updateCountdown, 1000);
 let isPlaying = false;
 
 function playAudio() {
-  audio.play();
+  audio1.play();
+  audio1.loop = true
   isPlaying = true;
 }
 function stopAudio() {
-  audio.pause();
+  audio1.pause();
+  isPlaying = false;
 }
 
 document.addEventListener("click", function () {
   if (!isPlaying) {
     playAudio();
-    audio.volume = 0.2;
+    audio1.volume = 0.2;
   } else {
     stopAudio();
   }
