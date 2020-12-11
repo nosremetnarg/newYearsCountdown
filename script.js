@@ -72,7 +72,7 @@ document.addEventListener("click", function () {
   } else {
     stopAudio();
   }
-  console.log("can you hear the fire? ");
+  console.log("Happy Holidays");
 });
 
 // function togglePlay() {
