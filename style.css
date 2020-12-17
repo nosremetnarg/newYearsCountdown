@@ -2,6 +2,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Lora:wght@700&display=swap");
 
+@keyframes gradient { 
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
 * {
   box-sizing: border-box;
 }
@@ -50,6 +55,27 @@ h1 {
 
   transform: scale(2);
 }
+
+.btn {
+  display: none;
+	font-size: 18px;
+  padding: 15px 30px;
+  border-radius: 30px;
+  text-decoration: none;
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: #fff;
+  border: 0;
+  outline: 0;
+  box-shadow: 0 5px 10px 0 rgba(205, 209, 215, 0.8);
+  color: #afb4bb;
+  background: linear-gradient(to right, #CB3066, #16BFFD);
+  color: #fff;
+  animation: gradient 2.5s ease infinite;
+  background-size: 300% 300%;
+
+
+}
 .time {
   display: flex;
   flex-direction: column;
@@ -80,3 +106,4 @@ h1 {
     font-size: 10px;
   }
 }
+
